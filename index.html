@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700&display=swap" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <title>Budget App</title>
+
+    </head> 
+    <body>
+ 
+        <div class="container container--top direction-column">
+            <div class="title"> 
+                The Budget App
+            </div>
+
+            <div class="budget"> 
+                0 €
+            </div>
+
+            <div class="totals">
+                <div class="totals__box totals__box--income">
+                    <div class="totals__box__text">Total Income</div>
+                    <div id="totalIncome" class="totals__box__amount">0.00 €</div>
+                </div> 
+    
+                <div class="totals__box totals__box--expenses">
+                    <div class="totals__box__text">Total Expenses</div>
+                    <div id="totalExpenses" class="totals__box__amount">0.00 €</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container container--bottom direction-row">
+            <div class="bills">
+                <div class="bills__title bills__title--income">
+                    <h2>Income</h2>
+                </div>
+                <div class="bills__add">
+                    <input type="text" id="incomeDescription" class="bills__add__description" placeholder="Add description">
+                    <input type="text" id="incomeValue" class="bills__add__amount" placeholder="Amount">
+                    <button id="incomeButton" class="bills__add__button bills__add__button--income">Add Income</button>
+                </div> 
+                <div class="bills__list">
+                    <ul class="bills__list--income"> 
+                        <!--   
+                            <li id="inc-%id%"> 
+                                <span> 
+                                    <ion-icon class="icon" name="close-circle"></ion-icon>
+                                </span>
+                                <p class="description">%description%</p>
+                                <p class="value--income">+ %value%</p>
+                            </li> 
+                        -->
+                    </ul>
+                </div>   
+            </div>
+
+            <div class="bills">
+                <div class="bills__title bills__title--expenses">
+                    <h2>Expenses</h2>
+                </div> 
+                <div class="bills__add">
+                    <input type="text" id="expensesDescription" class="bills__add__description" placeholder="Add description">
+                    <input type="text" id="expensesValue" class="bills__add__amount" placeholder="Amount">
+                    <button id="expensesButton" class="bills__add__button bills__add__button--expenses">Add Expense</button>
+                </div>
+                <div class="bills__list"> 
+                    <ul class="bills__list--expenses"> 
+                        <!--  
+                            <li id="exp-%id%"> 
+                                <span> 
+                                    <ion-icon class="icon" name="close-circle"></ion-icon>
+                                </span>
+                                <p class="description">%description%</p>
+                                <p class="value--expenses">- %value%</p>
+                            </li>  
+                        -->      
+                    </ul>
+                </div>
+            </div>
+        </div>
+         
+        <script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

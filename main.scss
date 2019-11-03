@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+html {
+    // This defines what 1rem is --> 10px (Browser default size --> 16px)
+    font-size: 62.5%;
+}
+
+// COLOURS 
+
+$color-primary-light: #00e613;
+$color-primary-dark: #198115;
+
+$color-secondary-light: #ff1c02;
+$color-secondary-dark:#c42a19;
+
+$color-tertiary-light: #d4ecf0;
+$color-tertiary-dark:  #80c2d3;
+
+$color-grey-light-1: #ecf0f1;
+$color-grey-light-2: #bdc3c7;
+$color-grey-dark-1: #2c3e50;
+$color-grey-dark-2: #1e2329;
+
+$color-black: #000;
+
+// FONTS
+
+$default-font-size: 1.6rem;
+
+body {
+    color: $color-grey-dark-1;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh; 
+    font-weight: 400;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.8),
+        rgba($color-tertiary-dark, 0.8)),
+        url("./pigbank.jpg");
+}
+
+/*------------------------
+        UPPER PART
+--------------------------*/
+
+.container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &--top {
+        animation-name: moveInBottom;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+    &--bottom {
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+}  
+
+.direction-row {
+    flex-direction: row;
+}
+
+.direction-column {
+    flex-direction: column;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center; 
+    color: $color-grey-dark-1; 
+    transition: all 0.2s; 
+
+    &:hover {
+        transform: skewY(-1.7deg) skewX(-4deg) scale(1.2);
+        text-shadow: .5rem 0.7rem 1.5rem rgba($color-black, .2);
+    }
+}  
+ 
+.budget {
+    font-size: 5rem;
+    font-weight: 700;
+    color: $color-grey-dark-2;
+
+    &--positive {
+        color:$color-primary-dark;
+    }
+
+    &--negative {
+        color: $color-secondary-dark;
+    }
+}
+
+.totals {
+    display: flex;
+    justify-content: space-evenly; 
+    font-size: $default-font-size;
+    width: 100%;
+    margin-bottom: 5rem;
+
+    &__box {
+        width: 30%;
+        margin: 0rem 2rem;
+        padding: 1rem 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        border-radius: 1rem;
+        border: 2px solid $color-grey-dark-2;
+
+        &__text,
+        &__amount { 
+            color: $color-grey-dark-2;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+ 
+        &--income {
+            border: 2px solid $color-grey-dark-2;
+            background-color: rgba($color-primary-light, .5);
+        }
+    
+        &--expenses {
+            border: 2px solid $color-grey-dark-2; 
+            background-color: rgba($color-secondary-light, .5); 
+        }
+    }
+}
+
+/*------------------------
+        BOTTOM PART
+--------------------------*/
+
+.bills {
+    margin: -5rem 2rem 0 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+
+        &--income {
+            color: $color-primary-dark;
+        }
+
+        &--expenses {
+            color: $color-secondary-light; 
+        }
+    }
+
+    &__add {
+        margin: 1rem 0 -0.6rem 0;
+        display: flex;
+        justify-content: center;
+
+        &__description { width: 55%;  }
+        &__amount { width: 20%; }
+
+        &__description,
+        &__amount {
+            font-size: 2rem;
+            box-sizing: border-box;
+            border: 3px solid $color-grey-dark-1;
+            border-radius: 0.6rem;
+            padding: 0.6rem 1rem;
+            border: 2px solid $color-grey-light-2;
+            transition: border 0.3s;
+            
+            &:focus {
+                border: 3px solid $color-grey-dark-1;
+                outline: none;   
+            }
+        }
+
+        &__button {
+            margin-left: 1.4rem;
+            border-radius: 1.5rem;
+            word-spacing: 1px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background-color 0.2s, border 0.2s, color 0.2s;
+            text-align: center;
+            transition: all 0.2s; 
+            
+            &--income { 
+                background-color: $color-primary-dark;
+                border: 1rem solid $color-primary-dark;
+
+                &:hover, 
+                &:active {
+                    color:$color-grey-light-1;
+                    background-color: $color-primary-light;
+                    border: 1rem solid $color-primary-light;
+                    transform: scale(1.05);
+                    transition: transform 0.2s;
+                }
+            }
+
+            &--expenses {
+                background-color: $color-secondary-dark;
+                border: 1rem solid $color-secondary-dark;
+
+                &:hover,
+                &:active {
+                    color:$color-grey-light-1;
+                    background-color: $color-secondary-light;
+                    border: 1rem solid $color-secondary-light;
+                    transform: scale(1.05);
+                    transition: transform 0.2s;
+                }
+            }
+        }
+    }
+
+    &__list {
+        margin-top: 1.2rem;
+        font-size: $default-font-size;
+
+        ul {
+            list-style: none;
+            
+            li {
+                width: 100%;
+                height: 4rem;
+                color: $color-grey-dark-1;
+                background-color: $color-grey-light-1;
+                line-height: 2rem;
+                display: flex;
+                flex-direction: row; 
+                align-items: center;
+
+                span { 
+                    height: 100%;
+                    margin-right: 2rem; 
+                    background-color: $color-secondary-dark;
+                    color: $color-grey-light-1; 
+                    width: 0;
+                    transition: 0.2s linear;
+                    opacity: 0;
+                    font-size: 2.8rem;
+                     
+                    // Icon Layout
+                    display: flex;
+                    flex-direction: column; 
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .description {
+                    flex-basis: 75%; 
+                }
+
+                .value {
+                    &--income {
+                        color: $color-primary-dark;
+                        
+                    }
+
+                    &--expenses {
+                        color: $color-secondary-dark;
+                    }
+                }
+
+                &:hover span {
+                        width: 4rem; 
+                        opacity: 1.0;
+                }
+            }
+
+            li:nth-child(2n){
+                background-color: $color-grey-light-2;
+            }
+        }
+    }
+}
+
+ 
+/*------------------------
+        ANIMATIONS
+--------------------------*/
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    70% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    60% {
+        transform: translateY(-1rem);
+    }
+
+    80% {
+        transform: translateY(-0.5rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
