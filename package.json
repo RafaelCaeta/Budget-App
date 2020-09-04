@@ -10,7 +10,7 @@
   "author": "Rafael",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.2"
   },
   "dependencies": {
